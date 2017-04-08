@@ -1,17 +1,15 @@
-#https://hub.docker.com/r/buildo/docker-python2.7-scikit-learn/~/dockerfile/
-
 FROM ubuntu
 
-RUN apt-get update; \
-    apt-get install -y \
-      python python-pip \
-      python-numpy python-scipy \
-      build-essential python-dev python-setuptools \
-      libatlas-dev libatlas3gf-base
+MAINTAINER git@ouvek.com
 
-RUN update-alternatives --set libblas.so.3 \
-      /usr/lib/atlas-base/atlas/libblas.so.3; \
-    update-alternatives --set liblapack.so.3 \
-      /usr/lib/atlas-base/atlas/liblapack.so.3
+RUN apt-get update
 
-RUN pip install -U scikit-learn
+RUN apt-get -y upgrade
+
+RUN apt-get -y install python-pip python-dev build-essential
+
+RUN pip install --upgrade pip
+
+RUN apt-get -y install python-numpy cython python-scipy
+
+RUN pip install scikit-learn
