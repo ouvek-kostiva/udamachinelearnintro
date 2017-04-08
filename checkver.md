@@ -1,3 +1,5 @@
 python -c "import sklearn; print sklearn.__version__"
+
 python -c "import numpy; print numpy.__version__"
+
 python -c "import scipy; print scipy.__version__"
